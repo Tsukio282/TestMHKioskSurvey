@@ -60,7 +60,7 @@
             padding: 12px;
             background-color: #8b2500;
             color: #e8dcc7;
-            border: 1px solid #4a1400;
+            border: 1px solid #441400;
             border-radius: 4px;
             font-size: 16px;
             font-weight: bold;
@@ -85,7 +85,8 @@
     <div class="container">
         <h2>Tavern Kiosk Feedback</h2>
         <p class="desc">Fellow hunter, how was your experience using our automated Monster Hunter Wilds canteen kiosk?</p>
-        <form>
+        
+        <form id="tavernForm">
             <div class="form-group">
                 <label for="name">Hunter Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your Hunter name" required>
@@ -94,7 +95,7 @@
             <div class="form-group">
                 <label for="rating">Kiosk Ordering Experience:</label>
                 <select id="rating" name="rating">
-                    <option value="5">5/5 Purr-fect! Mmm so Tasty!.</option>
+                    <option value="5">5/5 Purr-fect! Fast and easy.</option>
                     <option value="4">4/5 Great, food was hot.</option>
                     <option value="3">3/5 Average, took a while.</option>
                     <option value="2">2/5 Interface was confusing.</option>
@@ -117,9 +118,36 @@
                 <textarea id="feedback" name="feedback" placeholder="Any suggestions for the Palico staff?"></textarea>
             </div>
 
-            <button type="button" onclick="alert('Quest Complete! Feedback Submitted!')">Submit Feedback</button>
+            <button type="submit">Submit Feedback</button>
         </form>
     </div>
 
+    <script>
+        document.getElementById('tavernForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                rating: document.getElementById('rating').value,
+                favorite: document.getElementById('favorite').value,
+                feedback: document.getElementById('feedback').value
+            };
+
+            fetch('AKfycbyAO--FmkzMzUTPjCT7q_WoX6yAAu3zf8M9sngrbn3guntcXvl39aTYWMLeTDzkJcMO', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Quest Complete! Feedback Submitted!');
+                document.getElementById('tavernForm').reset();
+            })
+            .catch(err => {
+                console.error('Error:', err);
+                alert('There was a connection issue with the guild office.');
+            });
+        });
+    </script>
 </body>
 </html>
