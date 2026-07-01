@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunter's Tavern Kiosk Survey</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            background-color: #2c241b;
+            color: #e8dcc7;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #3e3224;
+            padding: 30px;
+            border: 2px solid #8b7355;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 500px;
+        }
+        h2 {
+            text-align: center;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #8b7355;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        input[type="text"], 
+        select, 
+        textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #f4ebdc;
+            border: 1px solid #5c4a3d;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #333;
+            font-family: inherit;
+        }
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #8b2500;
+            color: #e8dcc7;
+            border: 1px solid #4a1400;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            background-color: #a53000;
+        }
+        .desc {
+            text-align: center;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            color: #bfa888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Tavern Kiosk Feedback</h2>
+        <p class="desc">Fellow hunter, how was your experience using our automated Monster Hunter Wilds canteen kiosk?</p>
+        <form>
+            <div class="form-group">
+                <label for="name">Hunter Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your Hunter name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="rating">Kiosk Ordering Experience:</label>
+                <select id="rating" name="rating">
+                    <option value="5">5/5 Purr-fect! Mmm so Tasty!.</option>
+                    <option value="4">4/5 Great, food was hot.</option>
+                    <option value="3">3/5 Average, took a while.</option>
+                    <option value="2">2/5 Interface was confusing.</option>
+                    <option value="1">1/5 A Rathalos destroyed my order.</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="favorite">What did you order?</label>
+                <select id="favorite" name="favorite">
+                    <option value="meal">Chef's Choice Platter</option>
+                    <option value="drink">Mega Potion On The Rocks</option>
+                    <option value="snack">Well-Done Steak</option>
+                    <option value="other">Other / Custom Order</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="feedback">Additional Feedback:</label>
+                <textarea id="feedback" name="feedback" placeholder="Any suggestions for the Palico staff?"></textarea>
+            </div>
+
+            <button type="button" onclick="alert('Quest Complete! Feedback Submitted!')">Submit Feedback</button>
+        </form>
+    </div>
+
+</body>
+</html>
